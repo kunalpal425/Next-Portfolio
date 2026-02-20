@@ -21,16 +21,16 @@ export default function IntroAnimation({ onFinish }) {
     useEffect(() => {
         const interval = setInterval(() => {
             setIndex((i) => (i + 1) % greetings.length);
-        }, 700); // smoother
+        }, 700);
 
         return () => clearInterval(interval);
     }, []);
 
-    // trigger exit
+
     useEffect(() => {
         const timer = setTimeout(() => {
             setVisible(false);
-        }, 2800);
+        }, 4000);
 
         return () => clearTimeout(timer);
     }, []);
@@ -39,7 +39,7 @@ export default function IntroAnimation({ onFinish }) {
         <AnimatePresence mode="wait" onExitComplete={onFinish}>
             {visible && (
                 <motion.div
-                    className="fixed inset-0 flex items-center justify-center bg-black text-white overflow-hidden z-50"
+                    className="fixed  inset-0 flex items-center justify-center bg-black text-white overflow-hidden"
                     initial={{ y: 0 }}
                     animate={{ y: 0 }}
                     exit={{ y: "-100%" }}
