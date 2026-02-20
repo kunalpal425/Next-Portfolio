@@ -44,7 +44,7 @@ const Footer = () => {
           </a>
 
           <a
-            href="https://www.linkedin.com/"
+            href="https://www.linkedin.com/in/kunal-pal-4aa48134b/"
             target="_blank"
             rel="noopener noreferrer"
             className={iconStyle}

@@ -8,16 +8,13 @@ export default function NewsPage() {
   const [articles, setArticles] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  const API_KEY = process.env.NEXT_PUBLIC_NEWS_API;
+  const API_KEY = process.env.NEWS_API_KEY;
 
   useEffect(() => {
     const fetchNews = async () => {
       try {
-        const res = await fetch(
-          `https://newsdata.io/api/1/latest?apikey=${API_KEY}&country=in&language=en&size=9&category=technology`
-        );
+        const res = await fetch("/api/news");
         const data = await res.json();
-        console.log("Fetched news data:", data);
         setArticles(data.results || []);
       } catch (error) {
         console.error("Error fetching news:", error);
@@ -27,7 +24,7 @@ export default function NewsPage() {
     };
 
     fetchNews();
-  }, [API_KEY]);
+  }, []);
 
   if (loading) {
     return (

@@ -54,11 +54,11 @@ function Home() {
                       x="50%"
                       y="42%"
                       textAnchor="middle"
-                      fontSize="clamp(90px, 14vw, 200px)"
+                      fontSize="clamp(60px, 10vw, 140px)"
                       fontWeight="800"
                       fontFamily="Arial, Helvetica, sans-serif"
                       fill="white"
-                      letterSpacing="6"
+                      letterSpacing="4"
                     >
                       WEB
                     </text>
@@ -67,7 +67,7 @@ function Home() {
                       x="50%"
                       y="66%"
                       textAnchor="middle"
-                      fontSize="clamp(90px, 15vw, 190px)"
+                      fontSize="clamp(60px, 10vw, 140px)"
                       fontWeight="900"
                       fontFamily="Arial, Helvetica, sans-serif"
                       fill="white"
@@ -94,8 +94,8 @@ function Home() {
             </div>
 
             {/* 🧊 Description */}
-            <div className="border rounded-2xl p-5 sm:p-7 shadow-lg text-center w-full max-w-4xl bg-gray-800/50 backdrop-blur-sm border-cyan-500/20 mx-auto">
-              <p className="text-gray-300 text-base sm:text-lg lg:text-xl leading-relaxed">
+            <div className="border rounded-2xl -mt-10 sm:-mt-16 lg:-mt-30  sm:p-7 shadow-lg text-center w-full max-w-4xl bg-gray-800/50 backdrop-blur-sm border-cyan-500/20 mx-auto">
+              <p className="text-gray-300 text-base sm:text-lg lg:text-xl leading-relaxed ">
                 Crafting fast, modern and scalable web experiences. I build
                 high-performance full-stack applications with clean UI and smooth
                 interactions.
@@ -113,7 +113,7 @@ function Home() {
           </div>
 
           {/* 🌍 RIGHT SIDE */}
-          <div className="w-full h-[260px] sm:h-[360px] lg:h-[500px] xl:h-[560px]">
+          <div className="w-full h-[280px] sm:h-[380px] lg:h-[500px] xl:h-[580px] -mt-10 sm:-mt-16 lg:-mt-20">
             <EarthCanvas />
           </div>
         </div>

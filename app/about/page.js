@@ -27,9 +27,9 @@ const About = () => {
   return (
     <section className="min-h-screen bg-[#0b0f19] text-white px-4 sm:px-6 md:px-12 lg:px-16 py-16 sm:py-20">
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-14 items-center">
-        
+
         {/* ================= LEFT ================= */}
-        <div className="pt-6 sm:pt-10 md:pt-0">
+        <div className="sm:pt-10 md:pt-25">
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-5 sm:mb-6 leading-tight">
             A Bit About <span className="text-cyan-400">Me</span>
           </h1>
@@ -52,7 +52,7 @@ const About = () => {
 
           {/* ================= SOCIAL ICONS ================= */}
           <div className="flex items-center gap-3 sm:gap-4 flex-wrap">
-            
+
             <a
               href="https://github.com/kunalpal425?tab=repositories"
               target="_blank"
@@ -74,7 +74,7 @@ const About = () => {
             </a>
 
             <a
-              href="https://www.linkedin.com/"
+              href="https://www.linkedin.com/in/kunal-pal-4aa48134b/"
               target="_blank"
               rel="noopener noreferrer"
               className={iconBase}
