@@ -21,7 +21,7 @@ const EarthCanvas = dynamic(
   {
     ssr: false,
     loading: () => (
-      <div className="w-full h-[260px] sm:h-[360px] lg:h-[500px] animate-pulse bg-white/5 rounded-2xl" />
+      <div className="w-full h-65 sm:h-90 lg:h-125 animate-pulse bg-white/5 rounded-2xl" />
     ),
   }
 );
@@ -35,7 +35,7 @@ function Home() {
         <div className="mx-auto w-full max-w-7xl grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div className="flex flex-col space-y-10 lg:space-y-12 z-10">
             {/* 🔥 HERO TEXT */}
-            <div className="relative w-full h-[260px] sm:h-[600px] lg:h-[480px] xl:h-[520px]">
+            <div className="relative w-full h-65 sm:h-150 lg:h-120 xl:h-130">
 
               {/* glow */}
               <div className="absolute -inset-10 sm:-inset-14 bg-purple-600/25 blur-3xl sm:blur-[90px] rounded-full pointer-events-none" />
@@ -113,7 +113,7 @@ function Home() {
           </div>
 
           {/* 🌍 RIGHT SIDE */}
-          <div className="w-full h-[280px] sm:h-[380px] lg:h-[500px] xl:h-[580px] -mt-10 sm:-mt-16 lg:-mt-20">
+          <div className="w-full h-70 sm:h-95 lg:h-125 xl:h-145 -mt-10 sm:-mt-16 lg:-mt-20">
             <EarthCanvas />
           </div>
         </div>

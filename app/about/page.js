@@ -12,7 +12,7 @@ import { MdEmail } from "react-icons/md";
 const Robot = dynamic(() => import("@/components/ui/Robot"), {
   ssr: false,
   loading: () => (
-    <div className="w-full h-[320px] sm:h-[420px] bg-white/5 animate-pulse rounded-2xl" />
+    <div className="w-full h-80 sm:h-105 bg-white/5 animate-pulse rounded-2xl" />
   ),
 });
 
@@ -37,15 +37,13 @@ const About = () => {
           <p className="text-gray-300 leading-relaxed mb-5 sm:mb-6 text-sm sm:text-base">
             I am a passionate and detail-oriented web developer who enjoys
             creating modern, responsive, and user-friendly web applications.
-            With hands-on experience in technologies like Next.js, React, and
-            Tailwind CSS,
+            With hands-on experience in technologies like Html,Css,Gsap,Shad Cn Next.js, React, and
+            Tailwind CSS & more,
           </p>
 
           <p className="text-gray-400 leading-relaxed mb-8 sm:mb-10 text-sm sm:text-base">
             I am constantly learning and improving my skills to stay updated
-            with the latest trends in web development. Whether working on
-            personal projects or client work, I aim to write clean code, solve
-            problems efficiently, and create smooth user experiences. My goal
+            with the latest trends in web development.My goal
             is to contribute to impactful projects while continuing to grow as
             a developer.
           </p>
@@ -95,7 +93,7 @@ const About = () => {
 
         {/* ================= RIGHT ROBOT ================= */}
         <div className="flex justify-center md:justify-end">
-          <div className="w-full max-w-sm sm:max-w-md h-[320px] sm:h-[420px] will-change-transform">
+          <div className="w-full max-w-sm sm:max-w-md h-80 sm:h-105 will-change-transform">
             <Robot />
           </div>
         </div>

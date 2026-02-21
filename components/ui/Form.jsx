@@ -13,6 +13,8 @@ const formSchema = z.object({
     description: z.string().min(10, "Message too short"),
 })
 
+
+
 export default function ContactForm() {
     const [loading, setLoading] = useState(false)
 
@@ -25,21 +27,46 @@ export default function ContactForm() {
         resolver: zodResolver(formSchema),
     })
 
-    //  EMAILJS SEND
+    //  SEND TO MONGODB & EMAILJS
     const onSubmit = async (data) => {
         setLoading(true)
 
         try {
-            await emailjs.send(
-                "service_a47zpbo",
-                "template_3kg4v6b",
-                {
-                    from_name: data.name,
-                    from_email: data.email,
-                    message: data.description,
+            // Save to MongoDB
+            const mongoResponse = await fetch("/api/contact", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
                 },
-                "eSDdCm18KgzwCisSw"
-            )
+                body: JSON.stringify({
+                    name: data.name,
+                    email: data.email,
+                    description: data.description,
+                }),
+            })
+
+            const mongoData = await mongoResponse.json()
+
+            if (!mongoResponse.ok) {
+                throw new Error(mongoData.message || "Failed to save to database")
+            }
+
+            // Send Email via EmailJS
+            try {
+                await emailjs.send(
+                    "service_a47zpbo",
+                    "template_3kg4v6b",
+                    {
+                        from_name: data.name,
+                        from_email: data.email,
+                        message: data.description,
+                    },
+                    "eSDdCm18KgzwCisSw"
+                )
+            } catch (emailError) {
+                console.warn("Email sending failed:", emailError)
+                // Continue even if email fails - data is saved in DB
+            }
 
             reset()
             alert("Message sent successfully ✅")
