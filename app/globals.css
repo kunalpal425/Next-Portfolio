@@ -4,3 +4,38 @@
 
 @custom-variant dark (&:is(.dark *));
 
+.masked-text {
+    width: 100%;
+    height: 180px;
+
+    /* 🔥 animated gradient background */
+    background: linear-gradient(270deg,
+            #00f5ff,
+            #7c3aed,
+            #00f5ff);
+    background-size: 400% 400%;
+    animation: gradientMove 6s ease infinite;
+
+    mask-repeat: no-repeat;
+    -webkit-mask-repeat: no-repeat;
+
+    mask-position: center;
+    -webkit-mask-position: center;
+
+    mask-size: contain;
+    -webkit-mask-size: contain;
+}
+
+@keyframes gradientMove {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}

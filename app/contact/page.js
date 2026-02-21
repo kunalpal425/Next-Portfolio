@@ -9,7 +9,7 @@ export default function OrbitSection() {
     <section className="min-h-screen pt-10 bg-black text-white flex items-center justify-center px-6">
       <div className="w-full max-w-6xl grid md:grid-cols-2 gap-10 items-center">
         <ContactForm />
-        <div className="flex items-center justify-center">
+        <div className="flex items-center sm:pb-10 justify-center">
           <div className="w-64 h-64 relative">
             <svg
               viewBox="0 0 100 100"

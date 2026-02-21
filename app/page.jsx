@@ -35,15 +35,17 @@ function Home() {
         <div className="mx-auto w-full max-w-7xl grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div className="flex flex-col space-y-10 lg:space-y-12 z-10">
             {/* 🔥 HERO TEXT */}
-            <div className="relative w-full h-65 sm:h-150 lg:h-120 xl:h-130">
+            <div className="relative w-full h-65 sm:h-105 lg:h-115 xl:h-130">
 
               {/* glow */}
               <div className="absolute -inset-10 sm:-inset-14 bg-purple-600/25 blur-3xl sm:blur-[90px] rounded-full pointer-events-none" />
 
               <svg
-                className="relative tracking-widest w-full h-full"
+                className="relative w-full h-full"
                 viewBox="0 0 1600 900"
                 preserveAspectRatio="xMidYMid slice"
+                shapeRendering="geometricPrecision"
+                textRendering="geometricPrecision"
               >
                 <defs>
                   <mask id={maskId}>
@@ -54,24 +56,24 @@ function Home() {
                       x="50%"
                       y="42%"
                       textAnchor="middle"
-                      fontSize="clamp(60px, 10vw, 140px)"
-                      fontWeight="800"
+                      fontSize="clamp(180px, 18vw, 150px)"
+                      fontWeight="900"
                       fontFamily="Arial, Helvetica, sans-serif"
                       fill="white"
-                      letterSpacing="4"
+                      letterSpacing="6"
                     >
                       WEB
                     </text>
 
                     <text
                       x="50%"
-                      y="66%"
+                      y="65%"
                       textAnchor="middle"
-                      fontSize="clamp(60px, 10vw, 140px)"
+                      fontSize="clamp(140px, 12vw, 100px)"
                       fontWeight="900"
                       fontFamily="Arial, Helvetica, sans-serif"
                       fill="white"
-                      letterSpacing="4"
+                      letterSpacing="6"
                     >
                       DEVELOPER
                     </text>
@@ -94,14 +96,14 @@ function Home() {
             </div>
 
             {/* 🧊 Description */}
-            <div className="border rounded-2xl -mt-10 sm:-mt-16 lg:-mt-30  sm:p-7 shadow-lg text-center w-full max-w-4xl bg-gray-800/50 backdrop-blur-sm border-cyan-500/20 mx-auto">
-              <p className="text-gray-300 text-base sm:text-lg lg:text-xl leading-relaxed ">
+            <div className="border rounded-2xl -mt-10 sm:-mt-16 lg:-mt-30 p-2.5  sm:p-10 shadow-lg text-center w-full max-w-4xl bg-gray-800/50 backdrop-blur-sm border-cyan-500/20 mx-auto">
+              <p className="text-gray-300 p-6 text-base sm:text-lg lg:text-xl leading-relaxed ">
                 Crafting fast, modern and scalable web experiences. I build
                 high-performance full-stack applications with clean UI and smooth
                 interactions.
               </p>
 
-              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 mt-6 justify-center">
+              <div className="flex justify-center sm:space-x-6 sm:m-4 lg:m-0 gap-4">
                 <Link href="/about">
                   <Button text="Skills" />
                 </Link>
@@ -113,24 +115,24 @@ function Home() {
           </div>
 
           {/* 🌍 RIGHT SIDE */}
-          <div className="w-full h-70 sm:h-95 lg:h-125 xl:h-145 -mt-10 sm:-mt-16 lg:-mt-20">
+          <div className="w-full lg:h-70 sm:h-25 lg:h-125 xl:h-145 -mt-10 sm:-mt-16 lg:-mt-20">
             <EarthCanvas />
           </div>
         </div>
       </section>
+      <div>
+        <section id="about" className="md:hidden scroll-mt-24">
+          <About />
+        </section>
 
-      {/* 📱 MOBILE STACKED ROUTES ONLY */}
-      <section id="about" className="md:hidden scroll-mt-24">
-        <About />
-      </section>
+        <section id="contact" className="md:hidden scroll-mt-24">
+          <Contact />
+        </section>
 
-      <section id="contact" className="md:hidden scroll-mt-24">
-        <Contact />
-      </section>
-
-      <section id="blog" className="md:hidden scroll-mt-24">
-        <Blog />
-      </section>
+        <section id="blog" className="md:hidden scroll-mt-24">
+          <Blog />
+        </section>
+      </div>
     </main>
   );
 }

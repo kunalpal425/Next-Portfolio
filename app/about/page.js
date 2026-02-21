@@ -25,7 +25,7 @@ const iconBase =
 
 const About = () => {
   return (
-    <section className="min-h-screen bg-[#0b0f19] text-white px-4 sm:px-6 md:px-12 lg:px-16 py-16 sm:py-20">
+    <section className="min-h-screen  bg-[#0b0f19] text-white px-4 sm:px-6 md:px-12 lg:px-16 py-16 sm:py-20">
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-14 items-center">
 
         {/* ================= LEFT ================= */}
@@ -93,7 +93,7 @@ const About = () => {
 
         {/* ================= RIGHT ROBOT ================= */}
         <div className="flex justify-center md:justify-end">
-          <div className="w-full max-w-sm sm:max-w-md h-80 sm:h-105 will-change-transform">
+          <div className=" hidden lg:block w-full h-[400px] w-full max-w-sm sm:max-w-md h-80 sm:h-105 will-change-transform">
             <Robot />
           </div>
         </div>
