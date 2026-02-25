@@ -17,8 +17,14 @@ export default function EarthGlobe() {
     if (!containerRef.current) return;
 
     const container = containerRef.current;
-    const width = container.clientWidth;
-    const height = container.clientHeight;
+    let width = container.clientWidth;
+    let height = container.clientHeight;
+
+    // 🔧 Ensure dimensions are valid (fix WebGL errors)
+    if (width === 0 || height === 0) {
+      width = 500;
+      height = 500;
+    }
 
     // =============================
     // Scene
@@ -104,8 +110,11 @@ export default function EarthGlobe() {
     const handleResize = () => {
       if (!containerRef.current || !rendererRef.current) return;
 
-      const w = container.clientWidth;
-      const h = container.clientHeight;
+      let w = containerRef.current.clientWidth;
+      let h = containerRef.current.clientHeight;
+
+      // 🔧 Ensure valid dimensions
+      if (w === 0 || h === 0) return;
 
       rendererRef.current.setSize(w, h);
       camera.aspect = w / h;
@@ -134,8 +143,8 @@ export default function EarthGlobe() {
   }, []);
 
   return (
-    <div className="w-full h-screen flex items-center justify-center bg-transparent">
-      <div ref={containerRef} className="w-[500px] h-[500px]" />
+    <div className="w-full h-full flex items-center justify-center bg-transparent">
+      <div ref={containerRef} className="w-full h-full" />
     </div>
   );
 }

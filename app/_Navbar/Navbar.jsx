@@ -1,5 +1,13 @@
 import Link from "next/link";
 import Button from "@/components/ui/button";
+
+const downloadResume = () => {
+    const link = document.createElement("a");
+    link.href = "/Kunal_resume.pdf";
+    link.download = "resume.pdf";
+    link.click();
+};
+
 export default function Navbar() {
     return (
         <nav className="fixed w-full top-0 z-50 flex items-center justify-between px-8 py-4 bg-transparent backdrop-blur-sm">
@@ -13,9 +21,7 @@ export default function Navbar() {
                 <Link href="/blog" className="hover:text-gray-300 transition">Blog</Link>
             </div>
             <div className="hidden md:block">
-                <Link href="#contact">
-                    <Button text="Hire Me"/>
-                </Link>
+                <Button text="Hire Me" onClick={downloadResume} />
             </div>
         </nav>
     );
