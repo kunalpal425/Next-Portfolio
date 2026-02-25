@@ -31,7 +31,7 @@ const About = () => {
         {/* ================= LEFT ================= */}
         <div className="sm:pt-10 md:pt-25">
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-5 sm:mb-6 leading-tight">
-            A Bit About <span className="text-cyan-400">Me</span>
+            A Little <span className="text-cyan-400">More About</span>
           </h1>
 
           <p className="text-gray-300 leading-relaxed mb-5 sm:mb-6 text-sm sm:text-base">
