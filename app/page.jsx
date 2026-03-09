@@ -3,12 +3,8 @@
 import dynamic from "next/dynamic";
 import { Geist } from "next/font/google";
 import Link from "next/link";
+import { memo } from "react";
 import Button from "@/components/ui/button";
-import { useId, memo } from "react";
-
-import About from "@/app/about/page";
-import Contact from "@/app/contact/page";
-import Blog from "@/app/blog/page";
 
 const geist = Geist({
   subsets: ["latin"],
@@ -16,123 +12,118 @@ const geist = Geist({
   display: "swap",
 });
 
-const EarthCanvas = dynamic(
-  () => import("@/components/ui/EarthCanvas"),
-  {
-    ssr: false,
-    loading: () => (
-      <div className="w-full h-65 sm:h-90 lg:h-125 animate-pulse bg-white/5 rounded-2xl" />
-    ),
-  }
-);
+const EarthCanvas = dynamic(() => import("@/components/ui/EarthCanvas"), {
+  ssr: false,
+});
 
 function Home() {
-  const maskId = useId();
-
   return (
-    <main className="scroll-smooth overflow-x-hidden bg-[#0a0a0a] text-white">
-      <section className="min-h-screen flex items-center px-4 sm:px-6 lg:px-24 py-10">
-        <div className="mx-auto w-full max-w-7xl grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          <div className="flex flex-col space-y-10 lg:space-y-12 z-10">
-            {/* 🔥 HERO TEXT */}
-            <div className="relative w-full h-65 sm:h-105 lg:h-115 xl:h-130">
+    <main className={`bg-[#0a0a0a] text-white overflow-x-hidden ${geist.className}`}>
+      
+      {/* HERO SECTION */}
 
-              {/* glow */}
-              <div className="absolute -inset-10 sm:-inset-14 bg-purple-600/25 blur-3xl sm:blur-[90px] rounded-full pointer-events-none" />
+      <section className="relative min-h-screen flex items-center px-6 lg:px-24 py-20">
 
-              <svg
-                className="relative w-full h-full"
-                viewBox="0 0 1600 900"
-                preserveAspectRatio="xMidYMid slice"
-                shapeRendering="geometricPrecision"
-                textRendering="geometricPrecision"
-              >
-                <defs>
-                  <mask id={maskId}>
-                    <rect width="100%" height="100%" fill="black" />
+        <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
 
-                    {/* ✅ MUCH better scaling */}
-                    <text
-                      x="50%"
-                      y="42%"
-                      textAnchor="middle"
-                      fontSize="clamp(180px, 18vw, 150px)"
-                      fontWeight="900"
-                      fontFamily="Arial, Helvetica, sans-serif"
-                      fill="white"
-                      letterSpacing="6"
-                    >
-                      WEB
-                    </text>
+          {/* LEFT SIDE */}
 
-                    <text
-                      x="50%"
-                      y="65%"
-                      textAnchor="middle"
-                      fontSize="clamp(140px, 12vw, 100px)"
-                      fontWeight="900"
-                      fontFamily="Arial, Helvetica, sans-serif"
-                      fill="white"
-                      letterSpacing="6"
-                    >
-                      DEVELOPER
-                    </text>
-                  </mask>
-                </defs>
+          <div className="space-y-8">
 
-                <foreignObject width="100%" height="100%" mask={`url(#${maskId})`}>
-                  <video
-                    autoPlay
-                    muted
-                    loop
-                    playsInline
-                    preload="metadata"
-                    className="w-full h-full object-cover rounded-2xl"
-                  >
-                    <source src="/video.mp4" type="video/mp4" />
-                  </video>
-                </foreignObject>
-              </svg>
+            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold leading-tight">
+              Hi, I'm a
+              <span className="block text-cyan-400">
+                Web Developer
+              </span>
+            </h1>
+
+            <p className="text-gray-400 text-lg max-w-xl leading-relaxed">
+              I create modern, fast and scalable web applications with
+              clean UI and smooth user experiences. Focused on building
+              products that feel simple but powerful.
+            </p>
+
+            <div className="flex gap-6 pt-4">
+
+              <Link href="/about">
+                <Button text="My Skills" />
+              </Link>
+
+              <Link href="/contact">
+                <Button text="Contact Me" />
+              </Link>
+
             </div>
 
-            {/* 🧊 Description */}
-            <div className="border rounded-2xl -mt-10 sm:-mt-16 lg:-mt-30 p-2.5  sm:p-10 shadow-lg text-center w-full max-w-4xl bg-gray-800/50 backdrop-blur-sm border-cyan-500/20 mx-auto">
-              <p className="text-gray-300 p-6 text-base sm:text-lg lg:text-xl leading-relaxed ">
-                Crafting fast, modern and scalable web experiences. I build
-                high-performance full-stack applications with clean UI and smooth
-                interactions.
-              </p>
-
-              <div className="flex justify-center sm:space-x-6 sm:m-4 lg:m-0 gap-4">
-                <Link href="/about">
-                  <Button text="Skills" />
-                </Link>
-                <Link href="/contact">
-                  <Button text="Contact Me" />
-                </Link>
-              </div>
-            </div>
           </div>
 
-          {/* 🌍 RIGHT SIDE */}
-          <div className="w-full lg:h-70 sm:h-25 lg:h-125 xl:h-145 -mt-10 sm:-mt-16 lg:-mt-20">
+          {/* RIGHT SIDE */}
+
+          <div className="relative w-full h-[420px] lg:h-[560px]">
+
+            <div className="absolute inset-0 bg-cyan-500/10 blur-[120px] rounded-full" />
+
             <EarthCanvas />
+
           </div>
+
         </div>
       </section>
-      <div>
-        <section id="about" className="md:hidden scroll-mt-24">
-          <About />
-        </section>
 
-        <section id="contact" className="md:hidden scroll-mt-24">
-          <Contact />
-        </section>
+      {/* FEATURE / ABOUT PREVIEW */}
 
-        <section id="blog" className="md:hidden scroll-mt-24">
-          <Blog />
-        </section>
-      </div>
+      <section className="px-6 lg:px-24 py-24 border-t border-white/10">
+
+        <div className="max-w-6xl mx-auto text-center space-y-12">
+
+          <h2 className="text-4xl font-bold">
+            What I Do
+          </h2>
+
+          <div className="grid md:grid-cols-3 gap-10">
+
+            <div className="bg-white/5 p-8 rounded-2xl border border-white/10 hover:border-cyan-400/40 transition">
+
+              <h3 className="text-xl font-semibold mb-3">
+                Frontend
+              </h3>
+
+              <p className="text-gray-400">
+                Creating responsive and interactive UI using modern frameworks.
+              </p>
+
+            </div>
+
+            <div className="bg-white/5 p-8 rounded-2xl border border-white/10 hover:border-cyan-400/40 transition">
+
+              <h3 className="text-xl font-semibold mb-3">
+                Backend
+              </h3>
+
+              <p className="text-gray-400">
+                Building scalable APIs and backend logic for powerful apps.
+              </p>
+
+            </div>
+
+            <div className="bg-white/5 p-8 rounded-2xl border border-white/10 hover:border-cyan-400/40 transition">
+
+              <h3 className="text-xl font-semibold mb-3">
+                Performance
+              </h3>
+
+              <p className="text-gray-400">
+                Optimizing websites for speed, SEO and smooth experience.
+              </p>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </section>
+
     </main>
   );
 }
