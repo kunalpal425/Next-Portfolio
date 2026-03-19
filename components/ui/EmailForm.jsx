@@ -61,7 +61,7 @@ export default function ContactForm() {
                         from_email: data.email,
                         message: data.description,
                     },
-                    "eSDdCm18KgzwCisSw"
+                    "K53vXVLYBJzpy6CQF" // public key
                 )
             } catch (emailError) {
                 console.warn("Email sending failed:", emailError)
@@ -69,10 +69,10 @@ export default function ContactForm() {
             }
 
             reset()
-            alert("Message sent successfully ✅")
+            alert("Message sent successfully ")
         } catch (error) {
             console.error(error)
-            alert("Failed to send ❌")
+            alert("Soory Meassage Sending Failed")
         } finally {
             setLoading(false)
         }

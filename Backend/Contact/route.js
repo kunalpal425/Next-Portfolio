@@ -9,8 +9,12 @@ export async function POST(req) {
 
     if (!name || !email ) {
       return Response.json(
-        { success: false, message: "All fields are required" },
-        { status: 400 }
+        { 
+          success: false,
+          message: "All fields are required" },
+        { 
+          status: 400 
+        }
       );
     }
 
