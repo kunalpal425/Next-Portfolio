@@ -20,6 +20,7 @@ export default function RootLayout({ children }) {
       <body className="bg-black text-white overflow-y-auto">
         <SmoothScroll>
           <ScrollProgress />
+          
           <IntroWrapper >{children}</IntroWrapper>
         </SmoothScroll>
       </body>

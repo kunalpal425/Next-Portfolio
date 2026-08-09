@@ -9,6 +9,8 @@ import About from "@/app/about/page";
 import Contact from "@/app/contact/page";
 import Blog from "@/app/blog/page";
 import TimelineEffect from '@/app/_TimelineEffect/timeline'
+import Projects from "@/app/projects/page";
+
 const geist = Geist({
   subsets: ["latin"],
   weight: "400",
@@ -99,6 +101,12 @@ function Home() {
       <section className="block sm:hidden">
         <Blog />
       </section>
+
+      {/* Projects Page */}
+      <section className="">
+        <Projects />
+      </section>
+
     </main>
   );
 }

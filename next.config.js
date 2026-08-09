@@ -1,5 +1,8 @@
 const nextConfig = {
   reactStrictMode: false,
+  turbopack: {
+    root: __dirname,
+  },
   images: {
     remotePatterns: [
       {

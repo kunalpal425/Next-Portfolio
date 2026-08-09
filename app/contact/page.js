@@ -2,13 +2,13 @@
 import React from 'react'
 import ContactForm from '@/components/ui/EmailForm'
 import EyeAnimation from '@/components/mouseAnimation/EyeAnimation'
-
+import NavCard from '@/components/buttom-navCard/NavCard'
 
 export default function OrbitSection() {
   return (
     <section className="min-h-screen pt-10 bg-black text-white flex items-center justify-center px-6">
       <div className="w-full max-w-6xl grid md:grid-cols-2 gap-10 items-center">
-        <ContactForm />
+        <NavCard />
         <div className="flex items-center sm:pb-10 justify-center">
           <div className="w-64 h-64 relative">
   <svg

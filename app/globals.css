@@ -40,3 +40,18 @@
     }
 }
 
+
+.skill-container {
+    perspective: 1000px;
+}
+
+.skill-card {
+    transform-style: preserve-3d;
+    transition: transform 0.5s ease, box-shadow 0.5s ease;
+}
+
+.skill-card:hover {
+    transform: rotateX(8deg) rotateY(-8deg) translateY(-10px);
+}
+
+
