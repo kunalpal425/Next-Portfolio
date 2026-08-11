@@ -2,6 +2,10 @@
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
 
+html {
+    scroll-behavior: smooth;
+}
+
 @custom-variant dark (&:is(.dark *));
 
 .masked-text {
@@ -53,5 +57,3 @@
 .skill-card:hover {
     transform: rotateX(8deg) rotateY(-8deg) translateY(-10px);
 }
-
-

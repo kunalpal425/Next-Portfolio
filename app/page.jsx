@@ -10,6 +10,7 @@ import Contact from "@/app/contact/page";
 import Blog from "@/app/blog/page";
 import TimelineEffect from '@/app/_TimelineEffect/timeline'
 import Projects from "@/app/projects/page";
+import TechStack from "@/components/TechStack/TechStack";
 
 const geist = Geist({
   subsets: ["latin"],
@@ -50,8 +51,8 @@ function Home() {
 
             <div className="flex gap-6 ">
 
-              <Link href="/about">
-                <Button text="My Skills" />
+              <Link href="#TechStack">
+                <Button text="My Skills"  />
               </Link>
 
               <Link href="/contact">
@@ -80,6 +81,7 @@ function Home() {
       <section className="w-full mx-auto ">
         <TimelineEffect />
       </section>
+
 
 
 

@@ -3,6 +3,7 @@
 import { useState } from "react";
 import ProjectCard from "@/components/ProjectCard/ProjectCard";
 import SkillCard from "@/components/TechStack/TechStack";
+import Certificate from "@/app/Certificate/Certificate";
 
 const projects = [
   {
@@ -63,9 +64,9 @@ export default function Projects() {
           </div>
         </>
       ) : activeMenu === "Certificate" ? (
-        <ProjectCard />
+        <Certificate />
       ) : activeMenu === "Tech Stack" ? (
-        <SkillCard/>
+        <SkillCard />
       ) : null}
     </div>
   );

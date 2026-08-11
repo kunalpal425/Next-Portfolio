@@ -1,5 +1,7 @@
+"use client";
 import Link from "next/link";
 import Button from "@/components/ui/button";
+import { useEffect, useState } from "react";
 
 const downloadResume = () => {
     const link = document.createElement("a");
@@ -9,8 +11,32 @@ const downloadResume = () => {
 };
 
 export default function Navbar() {
+
+    const [hidden, setHidden] = useState(false);
+
+    useEffect(() => {
+        let lastScrollY = window.scrollY;
+
+        const handleScroll = () => {
+            const currentScrollY = window.scrollY;
+
+            if (currentScrollY > lastScrollY && currentScrollY > 100) {
+                // Scrolling down
+                setHidden(true);
+            } else {
+                // Scrolling up
+                setHidden(false);
+            }
+            lastScrollY = currentScrollY;
+        };
+        window.addEventListener("scroll", handleScroll);
+        return () => {
+            window.removeEventListener("scroll", handleScroll);
+        };
+    }, []);
+
     return (
-        <nav className="fixed w-full mt-3 top-0 z-50 flex sm:pt-1.5 items-center justify-between  px-8 py-4 bg-transparent backdrop-blur-sm">
+        <nav className={`fixed w-full mt-3 top-0 z-50 flex sm:pt-1.5 items-center justify-between  px-8 py-4 bg-transparent backdrop-blur-sm ${hidden ? "-translate-y-full" : "translate-y-0"}`}>
             <h2 className="text-xl font-bold">
                 <span className="text-cyan-400">KUNAL</span> | MERN Stack Developer
             </h2>
