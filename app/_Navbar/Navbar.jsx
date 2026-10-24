@@ -1,7 +1,7 @@
 "use client";
 import Link from "next/link";
 import Button from "@/components/ui/button";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const downloadResume = () => {
     const link = document.createElement("a");
@@ -13,6 +13,23 @@ const downloadResume = () => {
 export default function Navbar() {
 
     const [hidden, setHidden] = useState(false);
+    const [hireMeCoolingDown, setHireMeCoolingDown] = useState(false);
+    const hireMeCooldownRef = useRef(false);
+    const hireMeTimeoutRef = useRef(null);
+
+    const handleHireMeClick = () => {
+        if (hireMeCooldownRef.current) return;
+
+        hireMeCooldownRef.current = true;
+        setHireMeCoolingDown(true);
+        downloadResume();
+
+        hireMeTimeoutRef.current = window.setTimeout(() => {
+            hireMeCooldownRef.current = false;
+            setHireMeCoolingDown(false);
+            hireMeTimeoutRef.current = null;
+        }, 3000);
+    };
 
     useEffect(() => {
         let lastScrollY = window.scrollY;
@@ -32,6 +49,9 @@ export default function Navbar() {
         window.addEventListener("scroll", handleScroll);
         return () => {
             window.removeEventListener("scroll", handleScroll);
+            if (hireMeTimeoutRef.current !== null) {
+                window.clearTimeout(hireMeTimeoutRef.current);
+            }
         };
     }, []);
 
@@ -48,7 +68,11 @@ export default function Navbar() {
                 <Link href="/blog" className="hover:text-gray-300 transition">Blog</Link>
             </div>
             <div className="hidden md:block">
-                <Button text="Hire Me" onClick={downloadResume} />
+                <Button
+                    text={hireMeCoolingDown ? "Please wait..." : "Hire Me"}
+                    onClick={handleHireMeClick}
+                    disabled={hireMeCoolingDown}
+                />
             </div>
         </nav>
     );

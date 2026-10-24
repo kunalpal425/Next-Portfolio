@@ -292,7 +292,7 @@ export default function EverestTimeline() {
 
                             return (
                                 <div
-                                    key={ev.year}
+                                    key={`${ev.year}-${i}`}
                                     ref={addRowRef}
                                     className={`et-row reveal ${side === "right" ? "reveal-right" : "reveal-left"
                                         }`}

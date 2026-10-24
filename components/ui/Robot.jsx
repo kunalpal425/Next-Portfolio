@@ -17,7 +17,7 @@ function SplineScene() {
     const [hasError, setHasError] = useState(false);
 
     return (
-        <main className="relative w-full min-h-[70vh] sm:min-h-screen flex items-center justify-center overflow-hidden">
+        <main className="relative w-full min-h-[80vh] sm:min-h-screen flex items-center justify-center overflow-hidden">
 
             {/* ✅ Loader (centered + smooth) */}
             {loading && !hasError && (

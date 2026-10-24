@@ -75,7 +75,7 @@ const About = () => {
           variants={container}
           initial="hidden"
           animate={controls}
-          className="order-2 lg:order-1 text-center lg:text-left"
+          className="order-2 lg:order-1 text-center lg:text-left mt-20"
         >
           {/* Heading */}
           <motion.h1

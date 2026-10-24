@@ -13,11 +13,9 @@ export default function IntroWrapper({ children }) {
   useEffect(() => {
     const timer = setTimeout(() => {
       setShowIntro(false);
-
-      // ⭐ reset scroll when intro ends
       window.scrollTo({
         top: 0,
-        behavior: "instant"
+        behavior: "auto"
       });
 
     }, 2500);

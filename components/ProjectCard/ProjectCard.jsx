@@ -2,7 +2,6 @@
 
 import { motion } from "framer-motion";
 
-
 export default function ProjectCard({ project }) {
     return (
         <motion.div

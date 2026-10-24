@@ -8,9 +8,10 @@ import Button from "@/components/ui/button";
 import About from "@/app/about/page";
 import Contact from "@/app/contact/page";
 import Blog from "@/app/blog/page";
-import TimelineEffect from '@/app/_TimelineEffect/timeline'
+import TimelineEffect from '@/app/_TimelineEffect/timeline';
 import Projects from "@/app/projects/page";
-import TechStack from "@/components/TechStack/TechStack";
+import { videoPath } from "@/public/Path.js";
+
 
 const geist = Geist({
   subsets: ["latin"],
@@ -24,7 +25,7 @@ const EarthCanvas = dynamic(() => import("@/components/ui/EarthCanvas"), {
 
 function Home() {
   return (
-    <main className={`bg-[#0a0a0a] text-white overflow-x-hidden ${geist.className}`}>
+    <main className={`bg-[#000000] text-white overflow-x-hidden ${geist.className}`}>
 
       {/* HERO SECTION */}
 
@@ -36,12 +37,11 @@ function Home() {
 
           <div className="space-y-8">
 
-            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold leading-tight">
-              Hi, I'm a
-              <span className="block text-cyan-400">
-                Web Developer
-              </span>
-            </h1>
+            <h4 className="text-5xl sm:text-6xl lg:text-7xl font-bold leading-tight">
+              Hi, I'm <span className="inline text-cyan-400">KUNAL</span>
+              <br />
+              <span className="inline flex">Web Developer</span>
+            </h4>
 
             <p className="text-gray-400 text-lg sm:max-w-l max-w-xl leading-relaxed">
               I create modern, fast and scalable web applications with
@@ -50,39 +50,35 @@ function Home() {
             </p>
 
             <div className="flex gap-6 ">
-
-              <Link href="#TechStack">
-                <Button text="My Skills"  />
+              <Link href="#projects">
+                <Button text="My Skills" />
               </Link>
 
               <Link href="/contact">
                 <Button text="Contact Me" />
               </Link>
-
             </div>
-
           </div>
 
           {/* RIGHT SIDE */}
-
-          <div className="relative w-full sm:w-xl h-[420px] lg:h-[560px]">
-
-            <div className="absolute inset-0 bg-cyan-500/10 blur-[120px] rounded-full" />
-
-            <EarthCanvas />
-
+          <div className=" w-full h-[400px] sm:h-[500px] lg:h-[600px]">
+            <video
+              src={videoPath.earth}
+              autoPlay
+              loop
+              muted
+              playsInline
+              className="w-full h-full object-cover rounded-2xl"
+              />
           </div>
+        </div> 
 
-        </div>
       </section>
 
       {/* FEATURE / ABOUT PREVIEW */}
-
       <section className="w-full mx-auto ">
         <TimelineEffect />
       </section>
-
-
 
 
       {/* About Page*/}
@@ -90,16 +86,12 @@ function Home() {
         <About />
       </section>
 
-
-
-
-      {/* COntact Page*/}
+      {/* Contact Page*/}
       <section className="block sm:hidden">
         <Contact />
       </section>
 
       {/* Blog Page*/}
-
       <section className="block sm:hidden">
         <Blog />
       </section>

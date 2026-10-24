@@ -73,13 +73,13 @@ const skills = [
 
 export default function Skills() {
   return (
-    <section id="TechStack" className="min-h-screen bg-black text-white p-10">
+    <section id="TechStack" className="min-h-screen bg-black text-white px-4 py-12 sm:p-10">
 
-      <h2 className="text-4xl font-bold text-center mb-10">
+      <h2 className="text-3xl sm:text-4xl font-bold text-center mb-8 sm:mb-10">
         My Skills
       </h2>
 
-      <div className="max-w-5xl mx-auto grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6">
+      <div className="max-w-5xl mx-auto grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3 sm:gap-6">
 
         {skills.map((skill) => (
           <div
@@ -88,12 +88,13 @@ export default function Skills() {
               bg-white
               text-black
               rounded-2xl
-              p-6
+              min-w-0
+              p-3 sm:p-6
               flex
               flex-col
               items-center
               justify-center
-              gap-4
+              gap-3 sm:gap-4
               shadow-lg
               transition-all
               duration-300
@@ -104,10 +105,10 @@ export default function Skills() {
             <img
               src={skill.logo}
               alt={skill.name}
-              className="w-14 h-14 object-contain"
+              className="w-12 h-12 sm:w-14 sm:h-14 object-contain"
             />
 
-            <h3 className="text-lg font-semibold">
+            <h3 className="text-sm sm:text-lg font-semibold text-center break-words">
               {skill.name}
             </h3>
           </div>
